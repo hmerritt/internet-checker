@@ -13,6 +13,10 @@ header {
     justify-content: space-between;
     padding: 0px 50px;
 
+    @media (max-width: 800px) {
+        height: 100px;
+    }
+
     & > div {
         @include flex();
         align-items: center;
@@ -28,6 +32,10 @@ header {
 
     .links > * {
         margin-left: 28px;
+
+        @media (max-width: 800px) {
+            display: none;
+        }
     }
 }
 
