@@ -5,6 +5,7 @@ import "./styles/index.scss";
 
 import Header from "./components/Header";
 import Status from "./components/Status";
+import Results from "./components/Results";
 import Footer from "./components/Footer";
 import Particles from "./components/Particles";
 
@@ -20,7 +21,10 @@ function App() {
         <div className="App" status={status}>
             <div className="container">
                 <Header />
+
                 <Status />
+                <Results />
+
                 <Footer />
             </div>
             <Particles />

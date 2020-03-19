@@ -27,7 +27,7 @@ function Status() {
         <section className="status">
             <h2>
                 <span onClick={updateStatus}>
-                    {status} {results.length}
+                    {status}
                 </span>
             </h2>
         </section>
