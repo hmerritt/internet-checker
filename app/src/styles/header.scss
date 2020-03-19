@@ -1,0 +1,43 @@
+
+header {
+    @include transition(all, 280ms, ease);
+    @include user-select(none);
+    @include flex();
+
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background-color: $black;
+    justify-content: space-between;
+    padding: 0px 50px;
+
+    & > div {
+        @include flex();
+        align-items: center;
+    }
+
+    .title {
+        h1 {
+            color: #fff;
+            font-size: 2.6rem;
+            margin-left: 40px;
+        }
+    }
+
+    .links > * {
+        margin-left: 28px;
+    }
+}
+
+//  Theme
+.App[state=online] header {
+    background-color: $green;
+}
+.App[state=checking] header {
+    background-color: $amber;
+}
+.App[state=offline] header {
+    background-color: $red;
+}
