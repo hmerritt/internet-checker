@@ -4,6 +4,13 @@
     .results-wrapper {
         padding: 0 100px;
 
+        @media (max-width: 950px) {
+            padding: 0 50px;
+        }
+        @media (max-width: 840px) {
+            padding: 0;
+        }
+
         .result {
             @include transition(all, 280ms, ease);
             @include flex();
@@ -11,8 +18,16 @@
             border-top: 1px solid #efefef;
             padding: 10px 40px;
 
+            @media (max-width: 500px) {
+                padding: 10px 20px;
+            }
+
             & > div {
                 font-size: 2rem;
+
+                @media (max-width: 750px) {
+                    font-size: 1.5rem;
+                }
             }
 
             .icon {
