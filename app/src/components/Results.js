@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import moment from "moment";
+import Result from "./Result";
 
 function Results() {
     //  Fetch all request results
@@ -8,32 +8,13 @@ function Results() {
 
     return (
         <section className="results">
-            <table>
-                <thead>
-                    <tr>
-                        <th>-</th>
-                        <th>#</th>
-                        <th>Status</th>
-                        <th>Ping</th>
-                        <th>Time</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {results.map((result, key) => {
-                        return (
-                            <tr key={key}>
-                                <td>-</td>
-                                <td>{key}</td>
-                                <td>{result.status}</td>
-                                <td>{result.ping}</td>
-                                <td>
-                                    {moment(result.request_start).calendar()}
-                                </td>
-                            </tr>
-                        );
-                    }).reverse()}
-                </tbody>
-            </table>
+            <div className="results-wrapper">
+                {
+                    results.map((result, key) => {
+                        return <Result result={result} id={key} key={key} />;
+                    }).reverse()
+                }
+            </div>
         </section>
     );
 }

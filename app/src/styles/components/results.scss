@@ -1,20 +1,37 @@
 
 .results {
 
-    table {
-        width: 100%;
+    .results-wrapper {
+        padding: 0 100px;
 
-        thead {
-            font-size: 2.4rem;
-            text-align: left;
-        }
+        .result {
+            @include transition(all, 280ms, ease);
+            @include flex();
+            justify-content: space-between;
+            border-top: 1px solid #efefef;
+            padding: 10px 40px;
 
-        tbody {
-            font-size: 2rem;
+            & > div {
+                font-size: 2rem;
+            }
 
-            td {
-                margin: 10px 0;
+            .icon {
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-radius: 100%;
             }
         }
     }
+}
+
+//  Theme
+.result[status=online] .icon {
+    background-color: $green;
+}
+.result[status=checking] .icon {
+    background-color: $amber;
+}
+.result[status=offline] .icon {
+    background-color: $red;
 }
