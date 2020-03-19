@@ -10,7 +10,9 @@ function Header() {
                 <h1>Internet Checker</h1>
             </div>
             <div className="links">
-                <Icon path={mdiGithub} size="34px" color="#fff" />
+                <a href="https://github.com/hmerritt/internet-checker">
+                    <Icon path={mdiGithub} size="34px" color="#fff" />
+                </a>
             </div>
         </header>
     );

@@ -6,7 +6,9 @@ function Footer() {
     return (
         <footer>
             <div className="links">
-                <Icon path={mdiGithub} size="34px" color="#fff" />
+                <a href="https://github.com/hmerritt/internet-checker">
+                    <Icon path={mdiGithub} size="34px" color="#fff" />
+                </a>
             </div>
         </footer>
     );
