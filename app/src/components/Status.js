@@ -9,6 +9,9 @@ function Status() {
 
     //  Fetch the current status
     const status = useSelector(state => state.status);
+    const results = useSelector(state => state.results);
+
+    console.log(results);
 
     //  Update status
     const updateStatus = () => {
@@ -24,7 +27,7 @@ function Status() {
         <section className="status">
             <h2>
                 <span onClick={updateStatus}>
-                    {status}
+                    {status} {results.length}
                 </span>
             </h2>
         </section>
