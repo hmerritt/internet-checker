@@ -23,7 +23,7 @@ function Ping() {
               <YAxis />
               <Tooltip />
               <Legend />
-              <Line type="monotone" dataKey="ping" stroke="#8884d8" />
+              <Line connectNulls type="monotone" dataKey="ping" stroke="#8884d8" />
             </LineChart>
         </section>
     );

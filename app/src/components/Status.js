@@ -13,7 +13,10 @@ function Status() {
 
     //  Update status
     const updateStatus = () => {
-        dispatch( checkStatus() );
+        //  Check if already getting status
+        if (status !== "checking" || results.length === 0) {
+            dispatch( checkStatus() );
+        }
     }
 
     //  Update status on load
