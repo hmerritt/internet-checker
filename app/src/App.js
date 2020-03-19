@@ -5,6 +5,7 @@ import "./styles/index.scss";
 
 import Header from "./components/Header";
 import Status from "./components/Status";
+import Ping from "./components/Ping";
 import Results from "./components/Results";
 import Footer from "./components/Footer";
 import Particles from "./components/Particles";
@@ -23,6 +24,7 @@ function App() {
                 <Header />
 
                 <Status />
+                <Ping />
                 <Results />
 
                 <Footer />

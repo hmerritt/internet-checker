@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import moment from "moment";
 
@@ -21,9 +21,9 @@ function Results() {
                 <tbody>
                     {results.map((result, key) => {
                         return (
-                            <tr>
+                            <tr key={key}>
                                 <td>-</td>
-                                <td>{key + 1}</td>
+                                <td>{key}</td>
                                 <td>{result.status}</td>
                                 <td>{result.ping}</td>
                                 <td>

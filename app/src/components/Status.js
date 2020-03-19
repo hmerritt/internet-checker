@@ -11,8 +11,6 @@ function Status() {
     const status = useSelector(state => state.status);
     const results = useSelector(state => state.results);
 
-    console.log(results);
-
     //  Update status
     const updateStatus = () => {
         dispatch( checkStatus() );
