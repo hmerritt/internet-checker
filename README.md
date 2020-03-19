@@ -1,1 +1,1 @@
-# Internet Down Checker
+# Internet Checker
