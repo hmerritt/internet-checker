@@ -1,5 +1,6 @@
 
-header {
+header,
+footer {
     @include transition(all, 280ms, ease);
     @include user-select(none);
     @include flex();
@@ -32,6 +33,7 @@ header {
 
     .links > * {
         margin-left: 28px;
+        justify-content: center;
 
         @media (max-width: 800px) {
             display: none;
@@ -40,12 +42,15 @@ header {
 }
 
 //  Theme
-.App[state=online] header {
+.App[status=online] header,
+.App[status=online] footer {
     background-color: $green;
 }
-.App[state=checking] header {
+.App[status=checking] header,
+.App[status=checking] footer {
     background-color: $amber;
 }
-.App[state=offline] header {
+.App[status=offline] header,
+.App[status=offline] footer {
     background-color: $red;
 }
