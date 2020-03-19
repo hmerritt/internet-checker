@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { checkStatus } from "../actions/";
 
-function Status({ status }) {
+function Status() {
+
+    //  Setup dispatcher
+    const dispatch = useDispatch();
+
+    //  Fetch the current status
+    const status = useSelector(state => state.status);
+
+    //  Update status
+    const updateStatus = () => {
+        dispatch( checkStatus() );
+    }
+
+    //  Update status on load
+    useEffect(() => {
+        updateStatus();
+    }, []);
 
     return (
         <section className="status">
-            <h2>{status}</h2>
+            <h2>
+                <span onClick={updateStatus}>
+                    {status}
+                </span>
+            </h2>
         </section>
     );
 }

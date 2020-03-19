@@ -1,6 +1,6 @@
 import React from "react";
 import Icon from "@mdi/react";
-import { mdiEarth, mdiGithub } from "@mdi/js";
+import { mdiGithub } from "@mdi/js";
 
 function Footer() {
     return (
