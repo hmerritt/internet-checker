@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import Particles from './components/Particles';
 import axios from "axios";
 import "./styles/index.scss";
@@ -9,7 +10,8 @@ import Footer from "./components/Footer";
 
 function App() {
 
-    let status = "online";
+    //  Fetch the current status
+    const status = useSelector(state => state.status);
 
     return (
         <div className="App" status={status}>

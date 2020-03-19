@@ -15,13 +15,13 @@ function Particles() {
                             }
                         },
                         color: {
-                            value: "#444444"
+                            value: "#777777"
                         },
                         line_linked: {
                             enable: true,
                             opacity: 0.5,
                             distance: 80,
-                            color: "#444444"
+                            color: "#777777"
                         },
                         move: {
                             direction: "none",
