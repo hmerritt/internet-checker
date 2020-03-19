@@ -7,7 +7,7 @@ function Result({ result, id }) {
             <div>
                 <span className="icon"></span>
             </div>
-            <div>{(id + 1)}</div>
+            <div>{id}</div>
             <div>{result.status}</div>
             <div>{result.ping}ms</div>
             <div>{moment(result.request_start).calendar()}</div>

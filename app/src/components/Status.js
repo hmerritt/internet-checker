@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { checkStatus } from "../actions/";
+import { useInterval } from "../hooks/useInterval";
 
 function Status() {
 
@@ -23,6 +24,11 @@ function Status() {
     useEffect(() => {
         updateStatus();
     }, []);
+
+    //  Update status every 15 seconds
+    useInterval(() => {
+        updateStatus();
+    }, 15000);
 
     return (
         <section className="status">
