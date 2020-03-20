@@ -1,4 +1,12 @@
 
+/**
+ * Calculates the percentage of failed requests
+ *
+ * @param array arr
+ * @param string key
+ * @param string comp
+ * @return number percentFailed
+ */
 export const percentFailed = (arr, key, comp) => {
     const failed = arr.reduce((total, item) => {
         return total + (item[key] === comp ? 1 : 0);
@@ -8,3 +16,30 @@ export const percentFailed = (arr, key, comp) => {
 
     return percentFailed;
 };
+
+
+/**
+ * Filters results
+ *
+ * @param array results
+ * @param string type
+ * @return array results
+ */
+export const resultsFilter = (results, type) => {
+    return results.filter(result => {
+        switch (type) {
+            case "resolved":
+                return result.status !== "checking";
+                break;
+
+            case "success":
+                return result.status === "online";
+
+            case "failure":
+                return result.status === "offline";
+
+            default:
+                return true;
+        }
+    });
+}
