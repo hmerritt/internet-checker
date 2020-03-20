@@ -55,7 +55,7 @@ export const reducer = (state = initialState, action) => {
                         status: "offline",
                         request_start: action.payload.request_start,
                         request_end: action.payload.request_end,
-                        ping: 0
+                        ping: null
                     }
                 ]
             }

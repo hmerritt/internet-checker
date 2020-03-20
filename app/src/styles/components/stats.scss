@@ -1,0 +1,75 @@
+
+.stats {
+    @include transition(all, 280ms, ease);
+    width: 700px;
+    margin: 100px auto;
+    padding: 40px 0;
+    border-top: 2px solid #efefef;
+    border-bottom: 2px solid #efefef;
+
+    @media (max-width: 820px) {
+        width: 88%;
+
+        .title {
+            width: 240px;
+        }
+    }
+    @media (max-width: 650px) {
+        width: 88%;
+
+        .title {
+            font-size: 1.8rem;
+            width: 200px;
+        }
+    }
+
+    .stat {
+        @include flex();
+        height: 40px;
+        padding: 0 20px;
+        align-items: center;
+        justify-content: space-between;
+
+        &:hover,
+        &:active {
+            background-color: #fafafa;
+        }
+
+        .title {
+            width: 280px;
+            font-size: 2rem;
+            font-style: italic;
+            font-weight: lighter;
+            border-right: 2px solid #dedede;
+
+            @media (max-width: 820px) {
+                width: 240px;
+            }
+            @media (max-width: 650px) {
+                font-size: 1.8rem;
+                width: 200px;
+            }
+        }
+
+        .value.online {
+            color: $green;
+        }
+        .value.checking {
+            color: $amber;
+        }
+        .value.offline {
+            color: $red;
+        }
+    }
+}
+
+//  Theme
+.App[status=online] .status h2 {
+    color: $green;
+}
+.App[status=checking] .status h2 {
+    color: $amber;
+}
+.App[status=offline] .status h2 {
+    color: $red;
+}

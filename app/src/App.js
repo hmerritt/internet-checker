@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { capitalize } from "lodash";
 import "./styles/index.scss";
 
 import Header from "./components/Header";
 import Status from "./components/Status";
+import Stats from "./components/Stats";
 import Ping from "./components/Ping";
 import Results from "./components/Results";
 import Footer from "./components/Footer";
@@ -24,6 +25,7 @@ function App() {
                 <Header />
 
                 <Status />
+                <Stats />
                 <Ping />
                 <Results />
 
