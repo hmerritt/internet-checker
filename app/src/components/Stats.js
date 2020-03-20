@@ -11,6 +11,7 @@ function Stats() {
 
     //  Filter results that are still checking
     const resultsDone = results.filter(result => result.status !== "checking");
+    const resultsSuccess = results.filter(result => result.status === "online");
 
     return (
         <section className="stats">
@@ -33,7 +34,7 @@ function Stats() {
                 </div>
                 <div className="stat">
                     <h4 className="title"> Avg. Ping </h4>
-                    <p className="value"> {meanBy(resultsDone, "ping").toFixed(0)} ms </p>
+                    <p className="value"> {meanBy(resultsSuccess, "ping").toFixed(0)} ms </p>
                 </div>
             </div>
         </section>
