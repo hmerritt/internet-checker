@@ -34,7 +34,6 @@ function Ping() {
                         <Tooltip />
                         <Legend />
                         <Line
-                            connectNulls
                             type="monotone"
                             dataKey="ping"
                             stroke="#8884d8"
