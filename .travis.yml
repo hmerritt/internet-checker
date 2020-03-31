@@ -11,4 +11,5 @@ before_script: cd app
 
 script:
     - npm install
-    - npm build
+    - npm test
+    - npm run build

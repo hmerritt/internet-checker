@@ -30,7 +30,6 @@ export const resultsFilter = (results, type) => {
         switch (type) {
             case "resolved":
                 return result.status !== "checking";
-                break;
 
             case "success":
                 return result.status === "online";

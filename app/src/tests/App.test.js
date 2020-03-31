@@ -2,12 +2,11 @@ import React from "react";
 import { render } from "@testing-library/react";
 import App from "../App";
 
+//  Setup redux store
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import { reducer } from "../reducers";
-
-//  Create redux store
 const store = createStore(reducer, applyMiddleware(thunk));
 
 
