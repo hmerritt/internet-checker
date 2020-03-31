@@ -7,7 +7,9 @@ cache:
   directories:
     - "node_modules"
 
-before_script: cd app
+before_script:
+    - unset CI
+    - cd app
 
 script:
     - npm install
