@@ -56,14 +56,3 @@
         }
     }
 }
-
-//  Theme
-.App[status=online] .status h2 {
-    color: $green;
-}
-.App[status=checking] .status h2 {
-    color: $amber;
-}
-.App[status=offline] .status h2 {
-    color: $red;
-}
