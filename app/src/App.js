@@ -9,7 +9,6 @@ import Stats from "./components/Stats";
 import Ping from "./components/Ping";
 import Results from "./components/Results";
 import Footer from "./components/Footer";
-import Particles from "./components/Particles";
 
 function App() {
 
@@ -31,7 +30,6 @@ function App() {
 
                 <Footer />
             </div>
-            <Particles />
         </div>
     );
 }
