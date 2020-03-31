@@ -20,6 +20,9 @@ test:
     script:
         - npm install
         - npm run testAll
+        - npm run coverage
+    
+    coverage: /All\sfiles.*?\s+(\d+.\d+)/
 
 
 build:
