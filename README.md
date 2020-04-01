@@ -1,8 +1,13 @@
 # Internet Checker
 
-[![pipeline status](https://gitlab.merritt.es/hmerritt/internet-checker/badges/master/pipeline.svg)](https://gitlab.merritt.es/hmerritt/internet-checker/pipelines/latest)    [![coverage report](https://gitlab.merritt.es/hmerritt/internet-checker/badges/master/coverage.svg)](https://gitlab.merritt.es/hmerritt/internet-checker/pipelines/latest)
+[![Build Status](https://travis-ci.org/hmerritt/internet-checker.svg?branch=master)](https://travis-ci.org/hmerritt/internet-checker)
 
 A simple website to check if your internet is working
+
+
+## Screenshot
+
+![](https://i.imgur.com/rSHqAvT.png)
 
 
 ## Features
@@ -22,3 +27,21 @@ A simple website to check if your internet is working
 	- Timestamp
 
 - Live graph showing the __ping__ of each check
+
+
+## Install
+
+### [Docker](https://hub.docker.com/r/hmerritt/internet-checker)
+#### Pull
+```bash
+$ docker pull hmerritt/internet-checker:latest
+```
+
+#### Run
+```bash
+$ docker run --detach \
+  --publish 8000:80 \
+  --restart always \
+  --name internet-checker \
+  hmerritt/internet-checker
+```
