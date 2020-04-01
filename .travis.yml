@@ -1,18 +1,30 @@
-language: generic
+jobs:
+  include:
+    - stage: test
+      language: node_js
+      node_js:
+        - "stable"
+      cache:
+        directories:
+          - "app/node_modules"
+      before_script:
+        - unset CI
+        - cd app
+      script:
+        - npm install
+        - npm run coverage
+        - npm run build
 
-services:
-  - docker
- 
-before_script:
-  - docker build -t hmerritt/internet-checker -f Dockerfile .
+    - stage: deploy
+      language: generic
+      if: type = push AND branch = master
+      services:
+        - docker
+      before_script:
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      script:
+        - docker build -t hmerritt/internet-checker -f Dockerfile .
+        - docker push hmerritt/internet-checker:latest
 
-script:
-  - docker run hmerritt/internet-checker npm run coverage
-
-deploy:
-  provider: script
-  script:
-    - docker login -u DOCKER_USER -p DOCKER_PASS
-    - docker push hmerritt/internet-checker:latest
-  on:
-    branch: master
+notifications:
+    email: false
