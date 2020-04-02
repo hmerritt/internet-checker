@@ -19,14 +19,15 @@
     "react-scripts": "3.4.0",
     "recharts": "^1.8.5",
     "redux": "^4.0.5",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "store-css": "^1.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-	"testAll": "react-scripts test --watchAll=false",
-	"coverage": "react-scripts test --coverage --watchAll=false",
+    "testAll": "react-scripts test --watchAll=false",
+    "coverage": "react-scripts test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

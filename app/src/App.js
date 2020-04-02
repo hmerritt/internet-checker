@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { capitalize } from "lodash";
 import "./styles/index.scss";
@@ -11,7 +11,6 @@ import Results from "./components/Results";
 import Footer from "./components/Footer";
 
 function App() {
-
     //  Fetch the current status
     const status = useSelector(state => state.status);
 
