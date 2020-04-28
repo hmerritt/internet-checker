@@ -12,19 +12,30 @@ jobs:
         - cd app
       script:
         - npm install
+        - npm --depth 9999 update
+        - npm rebuild node-sass
         - npm run coverage
         - npm run build
 
     - stage: deploy
-      language: generic
+      dist: xenial
+      sudo: required
       if: type = push AND branch = master
-      services:
-        - docker
-      before_script:
-        - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      env:
+        - DOCKER_REPO: hmerritt/internet-checker
+        - BUILDX_PLATFORM: linux/amd64,linux/arm64,linux/arm/v7
+      before_install:
+        - curl -fsSL https://get.docker.com | sh
+        - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
+        - mkdir -p $HOME/.docker
+        - echo '{"experimental":"enabled"}' | sudo tee $HOME/.docker/config.json
+        - sudo service docker start
+      install:
+        - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+        - docker buildx create --name xbuilder --use
       script:
-        - docker build -t hmerritt/internet-checker -f Dockerfile .
-        - docker push hmerritt/internet-checker:latest
+        - docker login -u $DOCKER_USER -p $DOCKER_PASS
+        - docker buildx build --platform $BUILDX_PLATFORM -t $DOCKER_REPO:latest --push "."
 
 notifications:
     email: false
