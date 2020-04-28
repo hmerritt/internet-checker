@@ -24,6 +24,8 @@ jobs:
       env:
         - DOCKER_REPO: hmerritt/internet-checker
         - BUILDX_PLATFORM: linux/amd64,linux/arm64,linux/arm/v7
+        - DOCKER_BUILD_KIT=1
+        - DOCKER_CLI_EXPERIMENTAL=enabled
       before_install:
         - curl -fsSL https://get.docker.com | sh
         - echo '{"experimental":"enabled"}' | sudo tee /etc/docker/daemon.json
@@ -33,6 +35,14 @@ jobs:
       install:
         - docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
         - docker buildx create --name xbuilder --use
+      before_script:
+        - unset CI
+        - cd app
+        - npm install
+        - npm --depth 9999 update
+        - npm rebuild node-sass
+        - npm run build
+        - cd ../
       script:
         - docker login -u $DOCKER_USER -p $DOCKER_PASS
         - docker buildx build --platform $BUILDX_PLATFORM -t $DOCKER_REPO:latest --push "."
