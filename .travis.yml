@@ -15,6 +15,7 @@ jobs:
         - npm --depth 9999 update
         - npm rebuild node-sass
         - npm run coverage
+        - npm run coveralls
         - npm run build
 
     - stage: deploy
