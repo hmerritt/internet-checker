@@ -2,6 +2,7 @@
 .results {
 
     .results-wrapper {
+        cursor: default;
         padding: 0 100px;
 
         @media (max-width: 950px) {
@@ -14,7 +15,7 @@
         .result {
             @include transition(all, 280ms, ease);
             @include flex();
-            justify-content: space-between;
+            // justify-content: space-between;
             border-top: 1px solid #efefef;
             padding: 10px 40px;
 
@@ -22,11 +23,45 @@
                 padding: 10px 20px;
             }
 
+            &:nth-child(even) {
+            	background-color: #f8f8f8;
+            }
+
             & > div {
-                font-size: 2rem;
+                font-size: 1.7rem;
+                color: #333333;
 
                 @media (max-width: 750px) {
                     font-size: 1.5rem;
+                }
+            }
+
+            & > div:nth-child(1) {
+                width: 12%;
+            }
+            & > div:nth-child(2) {
+                width: 20%;
+            }
+            & > div:nth-child(3) {
+                width: 32%;
+            }
+            & > div:nth-child(4),
+            & > div:nth-child(5) {
+                width: 18%;
+            }
+            & > div:nth-child(5) {
+                text-align: right;
+            }
+
+            @media (max-width: 1100px) {
+                & > div:nth-child(2) {
+                    width: 15%;
+                }
+                & > div:nth-child(3) {
+                    width: 30%;
+                }
+                & > div:nth-child(5) {
+                    width: 25%;
                 }
             }
 
@@ -36,17 +71,24 @@
                 height: 20px;
                 border-radius: 100%;
             }
+
+            //  Icon color
+            &[status=online] .icon {
+                background-color: $green;
+            }
+            &[status=checking] .icon {
+                background-color: $amber;
+            }
+            &[status=offline] .icon {
+                background-color: $red;
+            }
+
+            &[status=checking] > div:nth-child(3) {
+                color: $amber;
+            }
+            &[status=offline] > div:nth-child(3) {
+                color: $red;
+            }
         }
     }
-}
-
-//  Theme
-.result[status=online] .icon {
-    background-color: $green;
-}
-.result[status=checking] .icon {
-    background-color: $amber;
-}
-.result[status=offline] .icon {
-    background-color: $red;
 }
