@@ -16,7 +16,7 @@ function Result({ result, id }) {
             </div>
             <div>{id + 1}</div>
             <div>{result.status}</div>
-            <div>{result.ping}ms</div>
+            <div>{result.ping || "~~"}ms</div>
             <div>{moment(result.request_start).fromNow()}</div>
         </div>
     );
